@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProgrammingAssignment1{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Welcome, Let's meet Pythagoras!");
+            Console.WriteLine();
+            
+            float X1, Y1, X2, Y2;
+            Console.Write("Point 1 X: ");
+            X1 = float.Parse(Console.ReadLine());
+            Console.WriteLine();
+            Console.Write("Point 1 Y: ");
+            Y1 = float.Parse(Console.ReadLine());
+            Console.WriteLine();
+            
+            Console.Write("Point 2 X: ");
+            X2 = float.Parse(Console.ReadLine());
+            Console.WriteLine();
+            Console.Write("Point 2 Y: ");
+            Y2 = float.Parse(Console.ReadLine());
+            Console.WriteLine();
+            
+            Console.WriteLine("With those inputs, the expected outputs are:");
+            Console.WriteLine();
+            
+            float deltaX, deltaY;
+            deltaX = X2 - X1;
+            deltaY = Y2 - Y1;
+            double dist = Math.Pow((Math.Pow((X2 - X1), 2) + Math.Pow((Y2 - Y1), 2)), 0.5);
+            Console.Write("Distance between points: ");
+            Console.WriteLine(dist.ToString("F3", CultureInfo.InvariantCulture));
+            Console.WriteLine();
+            
+            double ang = Math.Atan((Y2-Y1)/(X2-X1));
+            double angdeg = ang * (180.0) / Math.PI;
+
+            if(X2-X1 < 0 && Y2-Y1 > 0){
+              angdeg = angdeg + 180.0;
+            }
+            else if (X2-X1<0 && Y2-Y1<0){
+              angdeg = angdeg - 180.0;
+            }
+            Console.Write("Angle between points: ");
+            Console.Write(angdeg.ToString("F3", CultureInfo.InvariantCulture));
+            Console.WriteLine(" degrees");
+            Console.WriteLine();
+        }
+    }
+}
